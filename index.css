@@ -1,0 +1,47 @@
+:root{
+    --navy-blue: #1B244A;
+    --light-red: #F94F6D;
+    --periwinkle: #9AABD8;
+
+}
+
+body {
+    text-align: center;
+    margin: 0;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--navy-blue);
+    color: aquamarine;
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto; /* Para centrarlo en la pantalla */
+
+}
+
+.top-page {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.bottom-page {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.score {
+    color: var(--light-red);
+    font-family: 'Cursed Timer ULiL', sans-serif;
+    font-size: 3rem;
+}
+
+.team-name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: antiquewhite;
+}
