@@ -14,51 +14,88 @@
     <main>
         <div class="scoreboard">
             <div class="top-section">
+                <span class="team-name">TIME</span>
                 <time class="timer">
                     <span id="min-timer">00</span>
                     <span id="colon-timer">:</span>
                     <span id="sec-timer">00</span>
                 </time>
             </div>
-            <div class="bottom-section">
+            <div class="middle-section">
                 <!-- HOME TEAM SECTION -->
                 <div class="team">
-                    <span id="home-score" class="score-number">33 </span>
+                    <span class="team-name"> HOME </span>
                     <div class="team-metadata">
-                        <span class="team-name"> HOME </span>
-                        <!-- Indicador BONUS Local: Luz + Texto -->
+                        <span id="home-score" class="score-number">133 </span>
+                        <!-- BONUS Local Display: Light + Text -->
                         <div id="home-bonus-indicator" class="bonus-indicator">
                             <span class="bonus-text">BONUS</span>
                             <div class="bonus-ligth"></div>
                         </div>
                     </div>
                 </div>
-                <!-- SECCIÓN CENTRAL (POSS y PERIOD) -->
+                <!-- Central section (POSS and PERIOD) -->
                 <div class="central-info">
                     <div class="poss-container">
-                        <!-- Flechas de Posesión (Simples divs para estilizar como flechas o círculos) -->
+                        <!-- Possession Arrows -->
                         <div id="home-poss-arrow" class="poss-arrow left-arrow"></div>
                         <span class="central-text">POSS</span>
                         <div id="visitor-poss-arrow" class="poss-arrow right-arrow"></div>
                     </div>
                     <div class="period-container">
                         <span class="central-text">PERIOD</span>
-                        <!-- Número del periodo preparado para ser verde -->
+                        <!-- Period number set to be green -->
                         <span id="period-number" class="period-score">3</span>
                     </div>
                 </div>
                 <!-- VISITOR TEAM SECTION -->
                 <div class="team">
-                    <span id="visitor-score" class="score-number">50</span>
+                    <span class="team-name">VISITOR</span>
                     <div class="team-metadata">
-                        <span class="team-name">VISITORS</span>
-                        <!-- Indicador BONUS Visitante: Texto + Luz (Invertido para simetría) -->
+                        <span id="visitor-score" class="score-number">125</span>
+                        <!-- BONUS Visitor Sign: Text + Light (Reversed for symmetry) -->
                         <div id="visitor-bonus-indicator" class="bonus-indicator">
                             <div class="bonus-light"></div>
                             <span class="bonus-text">BONUS</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="stats-section">
+                <div class="fouls-section">
+                    <span class="fouls-name"> FOULS </span>
+                    <div class="foul-metadata">
+                        <span id="home-fouls-number" class="fouls-number">133 </span>
+                        <span id="fouls-home-text-under-number" class="fouls-text">
+                            <span class="bonus-text">TOL</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="fouls-player-section">
+                    <span id="min-timer-foul">FOULS PLAYER</span>
+                    <time class="timer">
+                        <span id="min-timer-foul">00</span>
+                        <span id="colon-timer-foul">:</span>
+                        <span id="sec-timer-foul">00</span>
+                    </time>
+                </div>
+                <div class="fouls-section">
+                    <span class="fouls-names"> FOULS </span>
+                    <div class="foul-metadata">
+                        <span id="visitor-fouls-number" class="fouls-number">133 </span>
+                        <span id="foul-visitor-text-under-number" class="fouls-text">
+                            <span class="bonus-text">TOL</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="shot-clock">
+                <span class="fouls-names"> SHOT CLOCK </span>
+                <time class="timer">
+                    <span id="min-shot-clock">00</span>
+                    <span id="colon-shot-clock">:</span>
+                    <span id="sec-shot-clock">00</span>
+                </time>
             </div>
         </div>
         <div class="control-panel">

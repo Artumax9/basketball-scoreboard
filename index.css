@@ -17,7 +17,7 @@ body {
     text-align: center;
     background-color: var(--navy-blue);
     color: aquamarine;
-    padding: 50px;
+    padding: 25px;
     width: 100%;
     max-width: 800px;
     margin: 0 auto; /* Para centrarlo en la pantalla */
@@ -29,7 +29,9 @@ body {
 
 .top-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -37,6 +39,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     color: var(--led-yellow);
     background-color: #111;
     padding: 15px 30px;
@@ -46,10 +49,11 @@ body {
     font-family: 'Cursed Timer ULiL', sans-serif;
     font-size: 3.5rem;
     border: 3px solid whitesmoke;
-    gap: 10px
+    gap: 10px;
+
 }
 
-.bottom-section {
+.middle-section {
     display: flex;
     justify-content: space-between; /*mejor espaciado*/
     text-align: center;
@@ -81,6 +85,8 @@ body {
     align-items: center;
     gap: 10px;
     width: 30%;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .team-metadata {
@@ -197,3 +203,58 @@ body {
     text-align: center;
     width: 100%;
 }
+
+.stats-section {
+    display: flex;
+    justify-content: space-between; /*mejor espaciado*/
+    text-align: center;
+    flex-direction: row;
+    align-items: flex-end; /* Alinea los nombres y central abajo */
+}
+
+
+.fouls-player-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fouls-name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: antiquewhite;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.fouls-metadata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.fouls-number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-red);
+    font-family: 'Cursed Timer ULiL', sans-serif;
+    font-size: 3.25rem;
+    background-color: #111;
+    padding: 15px;
+    border-radius: 8px;
+    border: 3px solid whitesmoke;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 120px;
+}
+
+.shot-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
