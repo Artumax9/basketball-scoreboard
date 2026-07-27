@@ -2,7 +2,7 @@
     --navy-blue: #1B244A;
     --light-red: #F94F6D;
     --periwinkle: #9AABD8;
-
+    --led-yellow: #F9D030;
 }
 
 body {
@@ -17,31 +17,183 @@ body {
     text-align: center;
     background-color: var(--navy-blue);
     color: aquamarine;
-    padding: 20px;
-    width: 800px;
+    padding: 50px;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto; /* Para centrarlo en la pantalla */
+    border: 10px solid black;
+    margin-bottom: 10x;
+
 
 }
 
-.top-page {
+.top-section {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-.bottom-page {
+.timer {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    text-align: center;
+    color: var(--led-yellow);
+    background-color: #111;
+    padding: 15px 30px;
+    border-radius: 8px;
+    display: flex;
+    margin-bottom: 10px;
+    font-family: 'Cursed Timer ULiL', sans-serif;
+    font-size: 3.5rem;
+    border: 3px solid whitesmoke;
+    gap: 10px
 }
 
-.score {
+.bottom-section {
+    display: flex;
+    justify-content: space-between; /*mejor espaciado*/
+    text-align: center;
+    flex-direction: row;
+    align-items: flex-end; /* Alinea los nombres y central abajo */
+}
+
+.score-number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     color: var(--light-red);
     font-family: 'Cursed Timer ULiL', sans-serif;
-    font-size: 3rem;
+    font-size: 3.25rem;
+    background-color: #111;
+    padding: 15px;
+    border-radius: 8px;
+    border: 3px solid whitesmoke;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 120px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 30%;
+}
+
+.team-metadata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* --- Estilo de BONUS (Realista) --- */
+.bonus-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--periwinkle); /* Color de texto secundario apagado */
+
+    /* PREPARACIÓN JS: Empezamos ocultos */
+    visibility: hidden;
+}
+
+/* PREPARACIÓN JS: Clase que añadirá JavaScript para "encender" el bonus */
+.bonus-indicator.active {
+    visibility: visible;
+}
+
+.bonus-text {
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.bonus-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Lo hace un círculo */
+    background-color: var(--light-red); /* Color de luz encendida */
+    box-shadow: 0 0 5px var(--light-red); /* Efecto de brillo LED */
+}
+
+/* --- Estilo de Sección Central --- */
+.central-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre POSS y PERIOD */
+    width: 35%;
+}
+
+.central-text {
+    color: var(--periwinkle);
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* --- Estilo de POSS (Flechas LED) --- */
+.poss-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.poss-arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    /* PREPARACIÓN JS: Color de flecha "apagada" */
+    border-left: 15px solid #333;
+
+    /* Si prefieres círculos como en POSS real, usa esto en lugar de bordes:
+    width: 12px; height: 12px; border-radius: 50%; background-color: #333;
+    */
+}
+
+/* PREPARACIÓN JS: Clase para encender la flecha (ej: color LED amarillo) */
+.poss-arrow.active {
+    border-left-color: var(--led-yellow);
+    filter: drop-shadow(0 0 3px var(--led-yellow));
+}
+
+/* Girar la flecha derecha para que apunte a VISITORS */
+.right-arrow {
+    transform: rotate(180deg);
+}
+
+/* --- Estilo de PERIOD (Mejorado, Verde) --- */
+.period-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.period-score {
+    /* Mismo estilo de caja que los números grandes */
+    font-family: 'Cursed Timer ULiL', sans-serif;
+    font-size: 2.5rem; /* Un poco más pequeño que los scores */
+    background-color: #111;
+    padding: 5px 20px;
+    border-radius: 8px;
+    margin-top: 5px;
+
+    /* CAMBIO ESTÉTICO: Verde brillante como en la imagen real 🟢 */
+    color: springgreen;
+    border: 3px solid springgreen;
+    box-shadow: 0 0 10px springgreen;
 }
 
 .team-name {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: antiquewhite;
+    margin: 0;
+    text-align: center;
+    width: 100%;
 }

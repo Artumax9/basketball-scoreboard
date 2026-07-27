@@ -1,49 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Scoreboard</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 
 <body>
-    <div class="scoreboard">
-        <div class="top-page">
-            <div class="timer">
-                00:00
+    <main>
+        <div class="scoreboard">
+            <div class="top-section">
+                <time class="timer">
+                    <span id="min-timer">00</span>
+                    <span id="colon-timer">:</span>
+                    <span id="sec-timer">00</span>
+                </time>
+            </div>
+            <div class="bottom-section">
+                <!-- HOME TEAM SECTION -->
+                <div class="team">
+                    <span id="home-score" class="score-number">33 </span>
+                    <div class="team-metadata">
+                        <span class="team-name"> HOME </span>
+                        <!-- Indicador BONUS Local: Luz + Texto -->
+                        <div id="home-bonus-indicator" class="bonus-indicator">
+                            <span class="bonus-text">BONUS</span>
+                            <div class="bonus-ligth"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SECCIÓN CENTRAL (POSS y PERIOD) -->
+                <div class="central-info">
+                    <div class="poss-container">
+                        <!-- Flechas de Posesión (Simples divs para estilizar como flechas o círculos) -->
+                        <div id="home-poss-arrow" class="poss-arrow left-arrow"></div>
+                        <span class="central-text">POSS</span>
+                        <div id="visitor-poss-arrow" class="poss-arrow right-arrow"></div>
+                    </div>
+                    <div class="period-container">
+                        <span class="central-text">PERIOD</span>
+                        <!-- Número del periodo preparado para ser verde -->
+                        <span id="period-number" class="period-score">3</span>
+                    </div>
+                </div>
+                <!-- VISITOR TEAM SECTION -->
+                <div class="team">
+                    <span id="visitor-score" class="score-number">50</span>
+                    <div class="team-metadata">
+                        <span class="team-name">VISITORS</span>
+                        <!-- Indicador BONUS Visitante: Texto + Luz (Invertido para simetría) -->
+                        <div id="visitor-bonus-indicator" class="bonus-indicator">
+                            <div class="bonus-light"></div>
+                            <span class="bonus-text">BONUS</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="bottom-page">
-            <div class="team">
-                <h2 class="team-name">HOME</h2>
-                <h3 class="score">0</h3>
-                <div class="puntuation">
-                    <button class="points">+1</button>
-                    <button class="points">+2</button>
-                    <button class="points">+3</button>
+        <div class="control-panel">
+            <div class="scoring-controls">
+                <div id="home-control">
+                    <button class="score-btn">+1</button>
+                    <button class="score-btn">+2</button>
+                    <button class="score-btn">+3</button>
+                </div>
+                <div id="visitor-control">
+                    <button class="score-btn">+1</button>
+                    <button class="score-btn">+2</button>
+                    <button class="score-btn">+3</button>
                 </div>
             </div>
-            <div class="period-bonus">
-                <div class="top-period">
-                    <h3>BONUS</h3>
-                    <h3>POSS</h3>
-                </div>
-                <div class="bottom-period">
-                    <h2>PERIOD</h2>
-                    <h3 class="period-score">0</h3>
-                </div>
-            </div>
-            <div class="team">
-                <h2 class="team-name">GUEST</h2>
-                <h3 class="score">0</h3>
-                <div class="puntuation">
-                    <button class="points">+1</button>
-                    <button class="points">+2</button>
-                    <button class="points">+3</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 
