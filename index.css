@@ -23,8 +23,6 @@ body {
     margin: 0 auto; /* Para centrarlo en la pantalla */
     border: 10px solid black;
     margin-bottom: 10x;
-
-
 }
 
 .top-section {
@@ -42,54 +40,35 @@ body {
     align-items: center;
     color: var(--led-yellow);
     background-color: #111;
-    padding: 15px 30px;
     border-radius: 8px;
     display: flex;
     margin-bottom: 10px;
     font-family: 'Cursed Timer ULiL', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3.25rem;
+    padding: 15px;
     border: 3px solid whitesmoke;
     gap: 10px;
 
 }
 
-.middle-section {
+.flex-row-container {
     display: flex;
     justify-content: space-between; /*mejor espaciado*/
     text-align: center;
     flex-direction: row;
-    align-items: flex-end; /* Alinea los nombres y central abajo */
+    align-items: flex-start;
 }
 
-.score-number {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--light-red);
-    font-family: 'Cursed Timer ULiL', sans-serif;
-    font-size: 3.25rem;
-    background-color: #111;
-    padding: 15px;
-    border-radius: 8px;
-    border: 3px solid whitesmoke;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 120px;
-}
-
-.team {
+.team-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     width: 30%;
-    font-size: 2rem;
     font-weight: bold;
 }
 
-.team-metadata {
+.team-panel-metadata {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,7 +92,7 @@ body {
 }
 
 .bonus-text {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     font-family: sans-serif;
     font-weight: bold;
 }
@@ -127,11 +106,11 @@ body {
 }
 
 /* --- Estilo de Sección Central --- */
-.central-info {
+.game-info-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Espacio entre POSS y PERIOD */
+    gap: 10px; /* Espacio entre POSS y PERIOD */
     width: 35%;
 }
 
@@ -196,35 +175,14 @@ body {
     box-shadow: 0 0 10px springgreen;
 }
 
-.team-name {
+.section-name {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: antiquewhite;
     margin: 0;
     text-align: center;
     width: 100%;
-}
+    font-size: 2rem;
 
-.stats-section {
-    display: flex;
-    justify-content: space-between; /*mejor espaciado*/
-    text-align: center;
-    flex-direction: row;
-    align-items: flex-end; /* Alinea los nombres y central abajo */
-}
-
-
-.fouls-player-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.fouls-name {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: antiquewhite;
-    margin: 0;
-    text-align: center;
-    width: 100%;
 }
 
 .fouls-metadata {
@@ -234,7 +192,7 @@ body {
     width: 100%;
 }
 
-.fouls-number {
+.led-red-box {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -242,14 +200,29 @@ body {
     text-align: center;
     color: var(--light-red);
     font-family: 'Cursed Timer ULiL', sans-serif;
-    font-size: 3.25rem;
     background-color: #111;
+    font-size: 3.25rem;
     padding: 15px;
     border-radius: 8px;
     border: 3px solid whitesmoke;
     margin-bottom: 10px;
     width: 100%;
     max-width: 120px;
+
+}
+
+.tol-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.tol-number {
+    font-family: 'Cursed Timer ULiL', sans-serif;
+    color: var(--led-yellow); /* Usar amarillo lo diferencia bien de las faltas rojas */
+    font-size: 1.5rem; /* Más pequeño que el score principal de 3.25rem */
 }
 
 .shot-clock {
