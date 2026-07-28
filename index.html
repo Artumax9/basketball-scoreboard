@@ -105,20 +105,37 @@
                 </time>
             </div>
         </div>
-        <div class="control-panel">
-            <div class="scoring-controls">
-                <div id="home-control">
-                    <button class="score-btn">+1</button>
-                    <button class="score-btn">+2</button>
-                    <button class="score-btn">+3</button>
-                </div>
-                <div id="visitor-control">
-                    <button class="score-btn">+1</button>
-                    <button class="score-btn">+2</button>
-                    <button class="score-btn">+3</button>
+        <div id="control-panel" class="control-panel-board">
+            <div id="home-control-panel" class="flex-column-container">
+                <span class="sub-section-name"> HOME CONTROL PANEL </span>
+                <div class="btn-grid">
+                    <button id="home-add-one-btn" class="control-btn">+1</button>
+                    <button id="home-add-two-btn" class="control-btn">+2</button>
+                    <button id="home-add-three-btn" class="control-btn">+3</button>
+                    <button id="home-add-foul-btn" class="control-btn">Home Foul</button>
+                    <button id="home-bonus-toggle-btn" class="toggle-btn">Home Bonus</button>
                 </div>
             </div>
-
+            <div id="game-control-panel" class="flex-column-container">
+                <span class="sub-section-name"> GAME CONTROL PANEL </span>
+                <div class="btn-grid">
+                    <button id="start-pause-time-btn" class="control-btn">Start/Pause</button>
+                    <button id="reset-time-btn" class="control-btn">Reset Time</button>
+                    <button id="start-pause-shot-clock-btn" class="toggle-btn">Start/Pause</button>
+                    <button id="reset-shot-clock-btn" class="control-btn">Reset Shot Clock</button>
+                    <button id="switch-poss-btn" class="toggle-btn">Switch POSS</button>
+                </div>
+            </div>
+            <div id="visitor-control-panel" class="flex-column-container">
+                <span class="sub-section-name"> VISITOR CONTROL PANEL </span>
+                <div class="btn-grid">
+                    <button id="visitor-add-one-btn" class="control-btn">+1</button>
+                    <button id="visitor-add-two-btn" class="control-btn">+2</button>
+                    <button id="visitor-add-three-btn" class="control-btn">+3</button>
+                    <button id="visitor-add-foul-btn" class="control-btn">Visitor Foul</button>
+                    <button id="visitor-bonus-toggle-btn" class="control-btn">Visitor Bonus</button>
+                </div>
+            </div>
         </div>
     </main>
     <script src="index.js"></script>
