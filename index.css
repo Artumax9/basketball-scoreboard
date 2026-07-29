@@ -62,7 +62,7 @@ body {
 
 .flex-column-container {
     display: flex;
-    justify-content: space-between; /*mejor espaciado*/
+    justify-content: flex-start;
     text-align: center;
     flex-direction: column;
     gap: 10px;

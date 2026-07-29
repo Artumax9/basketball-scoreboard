@@ -4,29 +4,22 @@ let homeScoreEl = document.getElementById("home-score")
 console.log(homeScore)
 console.log(homeScoreEl)
 
-
 let visitorScore = 0
 
 let visitorScoreEl = document.getElementById("visitor-score")
 console.log(visitorScoreEl)
-
 
 function addPoints(points, teams) {
 
   if (teams == "home") {
     homeScore += points
     homeScoreEl.textContent = homeScore
-
   } if (teams == "visitor") {
     visitorScore += points
     visitorScoreEl.textContent = visitorScore
-
   } else {
     console.log("error")
-
   }
-
-
 }
 
 let homeAddOneBtn = document.getElementById("home-add-one-btn")
@@ -71,4 +64,60 @@ visitorAddThreeBtn.addEventListener("click", function () {
 
 visitorSubOneBtn.addEventListener("click", function () {
   addPoints(-1, "visitor")
+})
+
+let homeFoul = 0
+let visitorFoul = 0
+
+let homeFoulEl = document.getElementById("home-fouls-number")
+let visitorFoulEl = document.getElementById("visitor-fouls-number")
+
+let homeFoulBtn = document.getElementById("home-add-foul-btn")
+let visitorFoulBtn = document.getElementById("visitor-add-foul-btn")
+
+let resetHomeFoulBtn = document.getElementById("home-reset-foul-btn")
+let resetVisitorFoulBtn = document.getElementById("visitor-reset-foul-btn")
+
+function addFoul(teams) {
+
+  if (teams == "home") {
+    homeFoul += 1
+    homeFoulEl.textContent = homeFoul
+  } else if (teams == "visitor") {
+    visitorFoul += 1
+    visitorFoulEl.textContent = visitorFoul
+  } else {
+    console.log("error")
+  }
+}
+
+function resetFoul(teams) {
+
+  if (teams == "home") {
+    homeFoul = 0
+    homeFoulEl.textContent = homeFoul
+  } else if (teams == "visitor") {
+    visitorFoul = 0
+    visitorFoulEl.textContent = visitorFoul
+  } else {
+    console.log("error")
+  }
+}
+
+
+homeFoulBtn.addEventListener("click", function () {
+  addFoul("home")
+})
+
+visitorFoulBtn.addEventListener("click", function () {
+  addFoul("visitor")
+})
+
+
+resetHomeFoulBtn.addEventListener("click", function () {
+  resetFoul("home")
+})
+
+resetVisitorFoulBtn.addEventListener("click", function () {
+  resetFoul("visitor")
 })
