@@ -121,3 +121,30 @@ resetHomeFoulBtn.addEventListener("click", function () {
 resetVisitorFoulBtn.addEventListener("click", function () {
   resetFoul("visitor")
 })
+
+let homeBonusIndicator = document.getElementById("home-bonus-indicator");
+let homeBonusBtn = document.getElementById("home-bonus-toggle-btn");
+
+let visitorBonusIndicator = document.getElementById("visitor-bonus-indicator");
+let visitorBonusBtn = document.getElementById("visitor-bonus-toggle-btn");
+
+visitorBonusBtn.addEventListener("click", function () {
+  visitorBonusIndicator.classList.toggle("active")
+})
+
+homeBonusBtn.addEventListener("click", function () {
+  homeBonusIndicator.classList.toggle("active")
+})
+
+// 1. Capturamos el botón y las dos flechas
+let switchPossBtn = document.getElementById("switch-poss-btn");
+let homePossArrow = document.getElementById("home-poss-arrow");
+let visitorPossArrow = document.getElementById("visitor-poss-arrow");
+
+// 2. Le decimos al botón que escuche el clic
+switchPossBtn.addEventListener("click", function () {
+  // 3. Alternamos ambas flechas al mismo tiempo
+  homePossArrow.classList.toggle("active");
+  visitorPossArrow.classList.toggle("active");
+});
+

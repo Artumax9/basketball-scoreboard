@@ -29,8 +29,9 @@
                         <span id="home-score" class="led-red-box">00</span>
                         <!-- BONUS Local Display: Light + Text -->
                         <div id="home-bonus-indicator" class="bonus-indicator">
+                            <div class="bonus-light"></div>
                             <span class="bonus-text">BONUS</span>
-                            <div class="bonus-ligth"></div>
+
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@
                 <div class="game-info-panel">
                     <div class="poss-container">
                         <!-- Possession Arrows -->
-                        <div id="home-poss-arrow" class="poss-arrow left-arrow"></div>
+                        <div id="home-poss-arrow" class="poss-arrow left-arrow active"></div>
                         <span class="central-text">POSS</span>
                         <div id="visitor-poss-arrow" class="poss-arrow right-arrow"></div>
                     </div>
@@ -121,9 +122,9 @@
             <div id="game-control-panel" class="flex-column-container">
                 <span class="sub-section-name"> GAME CONTROL PANEL </span>
                 <div class="btn-grid">
-                    <button id="start-pause-time-btn" class="control-btn">Start/Pause</button>
+                    <button id="start-pause-time-btn" class="control-btn">Start/Pause timer</button>
                     <button id="reset-time-btn" class="control-btn">Reset Time</button>
-                    <button id="start-pause-shot-clock-btn" class="toggle-btn">Start/Pause</button>
+                    <button id="start-pause-shot-clock-btn" class="toggle-btn">Start/Pause shot clock</button>
                     <button id="reset-shot-clock-btn" class="control-btn">Reset Shot Clock</button>
                     <button id="switch-poss-btn" class="toggle-btn">Switch POSS</button>
                 </div>
@@ -137,7 +138,7 @@
                     <button id="visitor-sub-one-btn" class="control-btn">-1</button>
                     <button id="visitor-add-foul-btn" class="control-btn">Add Foul</button>
                     <button id="visitor-reset-foul-btn" class="control-btn">Reset Foul</button>
-                    <button id="visitor-bonus-toggle-btn" class="control-btn">Visitor Bonus</button>
+                    <button id="visitor-bonus-toggle-btn" class="toggle-btn">Visitor Bonus</button>
                 </div>
             </div>
         </div>

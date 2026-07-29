@@ -275,6 +275,8 @@ body {
     cursor: pointer;
     transition: all 0.1s ease;
     outline: none;
+    max-width: 80%;
+    white-space: normal;
 }
 
 /* Colores específicos */
@@ -291,14 +293,14 @@ body {
 }
 
 /* The "pressed" effect when clicked */
-.control-btn:active {
+.control-btn:active, .toggle-btn:active {
   transform: translateY(4px); /* Pushes the button down */
   box-shadow:
     0 1px 0 #b32400,
     0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-.control-btn:hover {
+.control-btn:hover, .toggle-btn:hover {
   background-color: #33ff33;
   color: #0f0f0f;
   box-shadow: 0 0 20px rgba(51, 255, 51, 0.8);
