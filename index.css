@@ -49,7 +49,14 @@ body {
     padding: 15px;
     border: 3px solid whitesmoke;
     gap: 10px;
+    text-align: center;
+    width: 175px;
+    height: 65px;
+}
 
+#min-timer, #second-timer, #min-timer-foul, #sec-timer-foul, #min-shot-clock, #sec-shot-clock{
+    width: 60px;
+    text-align: center;
 }
 
 .flex-row-container {
@@ -216,8 +223,10 @@ body {
     border-radius: 8px;
     border: 3px solid whitesmoke;
     margin-bottom: 10px;
-    width: 100%;
+    width: 150px;
     max-width: 120px;
+    height: 65px
+
 
 }
 
