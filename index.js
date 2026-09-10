@@ -83,7 +83,7 @@ function addFoul(teams) {
   if (teams == "home") {
     homeFoul += 1
     homeFoulEl.textContent = homeFoul
-  } else if (teams == "visitor") {
+  } if (teams == "visitor") {
     visitorFoul += 1
     visitorFoulEl.textContent = visitorFoul
   } else {
