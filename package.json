@@ -1,14 +1,15 @@
 {
-  "name": "Scrim-s04k019",
-  "description": "https://scrimba.com/fullstack-path-c0fullstack/~05h",
+  "name": "basketball-scoreboard",
+  "private": true,
+  "description": "Interactive scoreboard for keeping score during a basketball game",
   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "vite": "latest"
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
 }
