@@ -167,6 +167,7 @@ function refreshClock() {
   }
   if (timeRemaining == 0) {
     clearInterval(timerId)
+    isRunning = false
   }
 
 }
@@ -223,12 +224,13 @@ function refreshTimeShotClock() {
 
   secondsShotClock.textContent = timeRemainingShotClock
 
-  if (secondsShotClock < 10) {
+  if (timeRemainingShotClock < 10) {
     secondsShotClock.textContent = "0" + timeRemainingShotClock
   }
 
   if (timeRemainingShotClock == 0) {
     clearInterval(timerIdShotClock)
+    isRunningShotClock = false
   }
 
 }
