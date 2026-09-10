@@ -14,9 +14,10 @@ function addPoints(points, teams) {
   if (teams == "home") {
     homeScore += points
     homeScoreEl.textContent = homeScore
-  } if (teams == "visitor") {
+  } else if (teams == "visitor") {
     visitorScore += points
     visitorScoreEl.textContent = visitorScore
+
   } else {
     console.log("error")
   }
@@ -83,7 +84,7 @@ function addFoul(teams) {
   if (teams == "home") {
     homeFoul += 1
     homeFoulEl.textContent = homeFoul
-  } if (teams == "visitor") {
+  } else if (teams == "visitor") {
     visitorFoul += 1
     visitorFoulEl.textContent = visitorFoul
   } else {
