@@ -7,9 +7,6 @@ const state = {
   shotClock: { remaining: 24, running: false },
 }
 
-// 2. Funciones que MODIFICAN el estado. No tocan el DOM.
-function addPoints(team, points) { state[team].score += points }
-
 function render() {
   //update score
   document.getElementById("home-score").textContent = String(state.home.score).padStart(2, '0')
@@ -40,154 +37,60 @@ function render() {
   document.getElementById("home-tol-number").textContent = state.home.timeouts
   document.getElementById("visitor-tol-number").textContent = state.visitor.timeouts
 
+}
+
+function addPoints(team, points) {
+  state[team].score += points
+  render()
+}
+
+function addFouls(team) {
+  state[team].fouls += 1
+  render()
+}
+
+function resetFouls(team) {
+  state[team].fouls = 0
+  render()
+}
+
+function toggleBonus(team) {
+  state[team].bonus = !state[team].bonus
+  render()
 
 }
 
-
-let homeScore = 0
-
-let homeScoreEl = document.getElementById("home-score")
-let visitorScore = 0
-
-let visitorScoreEl = document.getElementById("visitor-score")
-
-function addPoints(points, teams) {
-
-  if (teams == "home") {
-    homeScore += points
-    homeScoreEl.textContent = homeScore
-  } else if (teams == "visitor") {
-    visitorScore += points
-    visitorScoreEl.textContent = visitorScore
-
-  } else {
-    console.log("error")
-  }
+function switchPossession() {
+  state.possession = state.possession === "home" ? "visitor" : "home"
+  render()
 }
 
-let homeAddOneBtn = document.getElementById("home-add-one-btn")
-let homeAddTwoBtn = document.getElementById("home-add-two-btn")
-let homeAddThreeBtn = document.getElementById("home-add-three-btn")
-let homeSubOneBtn = document.getElementById("home-sub-one-btn")
-
-let visitorAddOneBtn = document.getElementById("visitor-add-one-btn")
-let visitorAddTwoBtn = document.getElementById("visitor-add-two-btn")
-let visitorAddThreeBtn = document.getElementById("visitor-add-three-btn")
-let visitorSubOneBtn = document.getElementById("visitor-sub-one-btn")
+//home score update
+document.getElementById("home-add-one-btn").addEventListener("click", () => addPoints("home", 1))
+document.getElementById("home-add-two-btn").addEventListener("click", () => addPoints("home", 2))
+document.getElementById("home-add-three-btn").addEventListener("click", () => addPoints("home", 3))
+document.getElementById("home-sub-one-btn").addEventListener("click", () => addPoints("home", -1))
 
 
-homeAddOneBtn.addEventListener("click", function () {
-  addPoints(1, "home")
-})
-
-homeAddTwoBtn.addEventListener("click", function () {
-  addPoints(2, "home")
-})
-
-homeAddThreeBtn.addEventListener("click", function () {
-  addPoints(3, "home")
-})
-
-homeSubOneBtn.addEventListener("click", function () {
-  addPoints(-1, "home")
-})
+document.getElementById("home-add-foul-btn").addEventListener("click", () => addFouls("home"))
+document.getElementById("home-reset-foul-btn").addEventListener("click", () => resetFouls("home"))
+document.getElementById("home-bonus-toggle-btn").addEventListener("click", () => toggleBonus("home"))
 
 
-visitorAddOneBtn.addEventListener("click", function () {
-  addPoints(1, "visitor")
-})
+//visitor score update
+document.getElementById("visitor-add-one-btn").addEventListener("click", () => addPoints("visitor", 1))
+document.getElementById("visitor-add-two-btn").addEventListener("click", () => addPoints("visitor", 2))
+document.getElementById("visitor-add-three-btn").addEventListener("click", () => addPoints("visitor", 3))
+document.getElementById("visitor-sub-one-btn").addEventListener("click", () => addPoints("visitor", -1))
 
-visitorAddTwoBtn.addEventListener("click", function () {
-  addPoints(2, "visitor")
-})
 
-visitorAddThreeBtn.addEventListener("click", function () {
-  addPoints(3, "visitor")
-})
+document.getElementById("visitor-add-foul-btn").addEventListener("click", () => addFouls("visitor"))
+document.getElementById("visitor-reset-foul-btn").addEventListener("click", () => resetFouls("visitor"))
+document.getElementById("visitor-bonus-toggle-btn").addEventListener("click", () => toggleBonus("visitor"))
 
-visitorSubOneBtn.addEventListener("click", function () {
-  addPoints(-1, "visitor")
-})
+// Switch Possession
+document.getElementById("switch-poss-btn").addEventListener("click", switchPossession)
 
-let homeFoul = 0
-let visitorFoul = 0
-
-let homeFoulEl = document.getElementById("home-fouls-number")
-let visitorFoulEl = document.getElementById("visitor-fouls-number")
-
-let homeFoulBtn = document.getElementById("home-add-foul-btn")
-let visitorFoulBtn = document.getElementById("visitor-add-foul-btn")
-
-let resetHomeFoulBtn = document.getElementById("home-reset-foul-btn")
-let resetVisitorFoulBtn = document.getElementById("visitor-reset-foul-btn")
-
-function addFoul(teams) {
-
-  if (teams == "home") {
-    homeFoul += 1
-    homeFoulEl.textContent = homeFoul
-  } else if (teams == "visitor") {
-    visitorFoul += 1
-    visitorFoulEl.textContent = visitorFoul
-  } else {
-    console.log("error")
-  }
-}
-
-function resetFoul(teams) {
-
-  if (teams == "home") {
-    homeFoul = 0
-    homeFoulEl.textContent = homeFoul
-  } else if (teams == "visitor") {
-    visitorFoul = 0
-    visitorFoulEl.textContent = visitorFoul
-  } else {
-    console.log("error")
-  }
-}
-
-homeFoulBtn.addEventListener("click", function () {
-  addFoul("home")
-})
-
-visitorFoulBtn.addEventListener("click", function () {
-  addFoul("visitor")
-})
-
-resetHomeFoulBtn.addEventListener("click", function () {
-  resetFoul("home")
-})
-
-resetVisitorFoulBtn.addEventListener("click", function () {
-  resetFoul("visitor")
-})
-
-let homeBonusIndicator = document.getElementById("home-bonus-indicator")
-let homeBonusBtn = document.getElementById("home-bonus-toggle-btn")
-
-let visitorBonusIndicator = document.getElementById("visitor-bonus-indicator")
-let visitorBonusBtn = document.getElementById("visitor-bonus-toggle-btn")
-
-visitorBonusBtn.addEventListener("click", function () {
-  visitorBonusIndicator.classList.toggle("active")
-})
-
-homeBonusBtn.addEventListener("click", function () {
-  homeBonusIndicator.classList.toggle("active")
-})
-
-// 1. Capturamos el botón y las dos flechas
-let switchPossBtn = document.getElementById("switch-poss-btn")
-let homePossArrow = document.getElementById("home-poss-arrow")
-let visitorPossArrow = document.getElementById("visitor-poss-arrow")
-
-// 2. Le decimos al botón que escuche el clic
-switchPossBtn.addEventListener("click", function () {
-  // 3. Alternamos ambas flechas al mismo tiempo
-  homePossArrow.classList.toggle("active")
-  visitorPossArrow.classList.toggle("active")
-})
 
 let mainTimeContainer = document.getElementById("main-time-container")
 let timeRemaining = 600
@@ -326,7 +229,7 @@ function resetClockShotCLock() {
   timeRemainingShotClock = 24
 
   if (minutesShotClock) minutesShotClock.textContent = initialminutesShotClock
-  secondsShotClock.textContent = initialsecondsShotClock;
+  secondsShotClock.textContent = initialsecondsShotClock
   ShotClockContainer.setAttribute("datetime", initialminutesShotClock + ":" + initialsecondsShotClock)
 }
 
