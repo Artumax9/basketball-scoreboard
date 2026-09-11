@@ -1,13 +1,9 @@
 let homeScore = 0
 
 let homeScoreEl = document.getElementById("home-score")
-console.log(homeScore)
-console.log(homeScoreEl)
-
 let visitorScore = 0
 
 let visitorScoreEl = document.getElementById("visitor-score")
-console.log(visitorScoreEl)
 
 function addPoints(points, teams) {
 
@@ -105,7 +101,6 @@ function resetFoul(teams) {
   }
 }
 
-
 homeFoulBtn.addEventListener("click", function () {
   addFoul("home")
 })
@@ -113,7 +108,6 @@ homeFoulBtn.addEventListener("click", function () {
 visitorFoulBtn.addEventListener("click", function () {
   addFoul("visitor")
 })
-
 
 resetHomeFoulBtn.addEventListener("click", function () {
   resetFoul("home")
@@ -149,6 +143,7 @@ switchPossBtn.addEventListener("click", function () {
   visitorPossArrow.classList.toggle("active")
 })
 
+let mainTimeContainer = document.getElementById("main-time-container")
 let timeRemaining = 600
 let minutes = document.getElementById("min-timer")
 let seconds = document.getElementById("sec-timer")
@@ -157,20 +152,34 @@ function refreshClock() {
   timeRemaining -= 1
   let minuteTime = Math.floor(timeRemaining / 60)
   let secTime = timeRemaining % 60
+  let minString
+  let secString
 
-  minutes.textContent = minuteTime
+  if (minuteTime < 10) {
+    minString = "0" + minuteTime
+  } else {
+    minString = minuteTime
+  }
+
+  minutes.textContent = minString
+
   if (secTime < 10) {
-    seconds.textContent = "0" + secTime
+    secString = "0" + secTime
   }
   else {
-    seconds.textContent = secTime
+    secString = secTime
   }
+
+  seconds.textContent = secString
+
+  mainTimeContainer.setAttribute("datetime", minString + ":" + secString)
+
   if (timeRemaining == 0) {
     clearInterval(timerId)
     isRunning = false
   }
-
 }
+
 
 let startPauseBtn = document.getElementById("start-pause-time-btn")
 
@@ -214,6 +223,7 @@ resetBtn.addEventListener("click", function () {
 
 
 // reloj 24 segundos de tiro
+let ShotClockContainer = document.getElementById("shot-clock-container")
 let timeRemainingShotClock = 24
 let minutesShotClock = document.getElementById("min-shot-clock")
 let secondsShotClock = document.getElementById("sec-shot-clock")
@@ -221,14 +231,19 @@ let timerIdShotClock
 
 function refreshTimeShotClock() {
   timeRemainingShotClock -= 1
+  let secShotString
 
   secondsShotClock.textContent = timeRemainingShotClock
 
   if (timeRemainingShotClock < 10) {
-    secondsShotClock.textContent = "0" + timeRemainingShotClock
+    secShotString = "0" + timeRemainingShotClock
+  } else {
+    secShotString = timeRemainingShotClock
   }
+  secondsShotClock.textContent = secShotString
+  ShotClockContainer.setAttribute("datetime", "00:" + secShotString)
 
-  if (timeRemainingShotClock == 0) {
+  if (timeRemainingShotClock <= 0) {
     clearInterval(timerIdShotClock)
     isRunningShotClock = false
   }
@@ -263,9 +278,12 @@ function resetClockShotCLock() {
   }
 
   timeRemainingShotClock = 24
-  minutesShotClock.textContent = initialminutesShotClock
-  secondsShotClock.textContent = initialsecondsShotClock
+
+  if (minutesShotClock) minutesShotClock.textContent = initialminutesShotClock
+  secondsShotClock.textContent = initialsecondsShotClock;
+  ShotClockContainer.setAttribute("datetime", initialminutesShotClock + ":" + initialsecondsShotClock)
 }
+
 
 resetBtnShotClock.addEventListener("click", function () {
   resetClockShotCLock()

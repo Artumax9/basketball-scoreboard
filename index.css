@@ -23,7 +23,7 @@ body {
     max-width: 800px;
     margin: 0 auto; /* Para centrarlo en la pantalla */
     border: 10px solid black;
-    margin-bottom: 10x;
+    margin-bottom: 10px;
 }
 
 .top-section {
@@ -54,7 +54,7 @@ body {
     height: 65px;
 }
 
-#min-timer, #second-timer, #min-timer-foul, #sec-timer-foul, #min-shot-clock, #sec-shot-clock{
+#min-timer, #sec-timer, #min-timer-foul, #sec-timer-foul, #min-shot-clock, #sec-shot-clock{
     width: 60px;
     text-align: center;
 }
@@ -90,6 +90,15 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+
+#main-time-container[datetime="00:00"] span {
+    color: red;
+}
+
+#shot-clock-container[datetime="00:00"] span {
+    color: red;
 }
 
 /* --- Estilo de BONUS (Realista) --- */
@@ -261,7 +270,7 @@ body {
     max-width: 800px;
     margin: 0 auto; /* Para centrarlo en la pantalla */
     border: 10px solid black;
-    margin-bottom: 10x;
+    margin-bottom: 10px;
     gap: 20px;
 }
 
