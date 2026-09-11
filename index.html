@@ -7,7 +7,6 @@
     <title>Basketball Scoreboard</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet">
-    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 
 <body>
@@ -15,7 +14,7 @@
         <div class="scoreboard">
             <div class="top-section">
                 <span class="section-name">TIME</span>
-                <time class="timer">
+                <time id="main-time-container" class="timer" datetime="10:00">
                     <span id="min-timer">10</span>
                     <span id="colon-timer">:</span>
                     <span id="sec-timer">00</span>
@@ -67,17 +66,17 @@
                     <span class="section-name"> FOULS </span>
                     <div class="foul-metadata">
                         <span id="home-fouls-number" class="led-red-box">0 </span>
-                        <span id="fouls-home-text-under-number" class="fouls-text">
+                        <div id="fouls-home-text-under-number" class="fouls-text">
                             <div class="tol-container">
                                 <span class="bonus-text">TOL</span>
                                 <span id="home-tol-number" class="tol-number">0</span>
                             </div>
-                        </span>
+                        </div>
                     </div>
                 </div>
                 <div class="game-info-panel">
                     <span id="timer-foul" class="section-name">FOULS PLAYER</span>
-                    <time id="main-time-container" class="timer" datetime="10:00">
+                    <time id="main-foul-container" class="timer" datetime="10:00">
                         <span id="min-timer-foul">00</span>
                         <span id="colon-timer-foul">:</span>
                         <span id="sec-timer-foul">00</span>
@@ -87,13 +86,13 @@
                     <span class="section-name"> FOULS </span>
                     <div class="foul-metadata">
                         <span id="visitor-fouls-number" class="led-red-box">0</span>
-                        <span id="foul-visitor-text-under-number" class="fouls-text">
+                        <div id="foul-visitor-text-under-number" class="fouls-text">
                             <!-- Reemplaza tu actual span de TOL con esto debajo del recuadro de faltas -->
                             <div class="tol-container">
                                 <span class="bonus-text">TOL</span>
                                 <span id="visitor-tol-number" class="tol-number">0</span>
                             </div>
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
