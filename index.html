@@ -109,13 +109,20 @@
             <div id="home-control-panel" class="flex-column-container">
                 <span class="sub-section-name"> HOME CONTROL PANEL </span>
                 <div class="btn-grid">
-                    <button id="home-add-one-btn" class="control-btn">+1</button>
-                    <button id="home-add-two-btn" class="control-btn">+2</button>
-                    <button id="home-add-three-btn" class="control-btn">+3</button>
-                    <button id="home-sub-one-btn" class="control-btn">-1</button>
-                    <button id="home-add-foul-btn" class="control-btn">Add Foul</button>
-                    <button id="home-reset-foul-btn" class="control-btn">Reset Foul</button>
-                    <button id="home-bonus-toggle-btn" class="toggle-btn">Home Bonus</button>
+                    <button id="home-add-one-btn" class="control-btn" data-action="score" data-team="home"
+                        data-points="1"="">+1</button>
+                    <button id="home-add-two-btn" class="control-btn" data-action="score" data-team="home"
+                        data-points="2"="">+2</button>
+                    <button id="home-add-three-btn" class="control-btn" data-action="score" data-team="home"
+                        data-points="3">+3</button>
+                    <button id="home-sub-one-btn" class="control-btn" data-action="score" data-team="home"
+                        data-points="-1">-1</button>
+                    <button id="home-add-foul-btn" class="control-btn" data-action="addFouls" data-team="home">Add
+                        Foul</button>
+                    <button id="home-reset-foul-btn" class="control-btn" data-action="resetFouls" data-team="home">Reset
+                        Foul</button>
+                    <button id="home-bonus-toggle-btn" class="toggle-btn" data-action="toggleBonus"
+                        data-team="home">Home Bonus</button>
                 </div>
             </div>
             <div id="game-control-panel" class="flex-column-container">
@@ -125,19 +132,26 @@
                     <button id="reset-time-btn" class="control-btn">Reset Time</button>
                     <button id="start-pause-shot-clock-btn" class="toggle-btn">Start/Pause shot clock</button>
                     <button id="reset-shot-clock-btn" class="control-btn">Reset Shot Clock</button>
-                    <button id="switch-poss-btn" class="toggle-btn">Switch POSS</button>
+                    <button id="switch-poss-btn" class="toggle-btn" data-action="switchPossession">Switch POSS</button>
                 </div>
             </div>
             <div id="visitor-control-panel" class="flex-column-container">
                 <span class="sub-section-name"> VISITOR CONTROL PANEL </span>
                 <div class="btn-grid">
-                    <button id="visitor-add-one-btn" class="control-btn">+1</button>
-                    <button id="visitor-add-two-btn" class="control-btn">+2</button>
-                    <button id="visitor-add-three-btn" class="control-btn">+3</button>
-                    <button id="visitor-sub-one-btn" class="control-btn">-1</button>
-                    <button id="visitor-add-foul-btn" class="control-btn">Add Foul</button>
-                    <button id="visitor-reset-foul-btn" class="control-btn">Reset Foul</button>
-                    <button id="visitor-bonus-toggle-btn" class="toggle-btn">Visitor Bonus</button>
+                    <button id="visitor-add-one-btn" class="control-btn" data-action="score" data-team="visitor"
+                        data-points="1">+1</button>
+                    <button id="visitor-add-two-btn" class="control-btn" data-action="score" data-team="visitor"
+                        data-points="2">+2</button>
+                    <button id="visitor-add-three-btn" class="control-btn" data-action="score" data-team="visitor"
+                        data-points="3">+3</button>
+                    <button id="visitor-sub-one-btn" class="control-btn" data-action="score" data-team="visitor"
+                        data-points="-1">-1</button>
+                    <button id="visitor-add-foul-btn" class="control-btn" data-action="addFouls" data-team="visitor">Add
+                        Foul</button>
+                    <button id="visitor-reset-foul-btn" class="control-btn" data-action="resetFouls"
+                        data-team="visitor">Reset Foul</button>
+                    <button id="visitor-bonus-toggle-btn" class="toggle-btn" data-action="toggleBonus"
+                        data-team="visitor">Visitor Bonus</button>
                 </div>
             </div>
         </div>

@@ -77,33 +77,6 @@ function switchPossession() {
   render()
 }
 
-//home score update
-document.getElementById("home-add-one-btn").addEventListener("click", () => addPoints("home", 1))
-document.getElementById("home-add-two-btn").addEventListener("click", () => addPoints("home", 2))
-document.getElementById("home-add-three-btn").addEventListener("click", () => addPoints("home", 3))
-document.getElementById("home-sub-one-btn").addEventListener("click", () => addPoints("home", -1))
-
-
-document.getElementById("home-add-foul-btn").addEventListener("click", () => addFouls("home"))
-document.getElementById("home-reset-foul-btn").addEventListener("click", () => resetFouls("home"))
-document.getElementById("home-bonus-toggle-btn").addEventListener("click", () => toggleBonus("home"))
-
-
-//visitor score update
-document.getElementById("visitor-add-one-btn").addEventListener("click", () => addPoints("visitor", 1))
-document.getElementById("visitor-add-two-btn").addEventListener("click", () => addPoints("visitor", 2))
-document.getElementById("visitor-add-three-btn").addEventListener("click", () => addPoints("visitor", 3))
-document.getElementById("visitor-sub-one-btn").addEventListener("click", () => addPoints("visitor", -1))
-
-
-document.getElementById("visitor-add-foul-btn").addEventListener("click", () => addFouls("visitor"))
-document.getElementById("visitor-reset-foul-btn").addEventListener("click", () => resetFouls("visitor"))
-document.getElementById("visitor-bonus-toggle-btn").addEventListener("click", () => toggleBonus("visitor"))
-
-// Switch Possession
-document.getElementById("switch-poss-btn").addEventListener("click", switchPossession)
-
-
 let mainTimeContainer = document.getElementById("main-time-container")
 let timeRemaining = 600
 let minutesEl = document.getElementById("min-timer")
@@ -129,6 +102,40 @@ function refreshClock() {
     isRunning = false
   }
 }
+
+
+const controlPanel = document.getElementById("control-panel")
+
+controlPanel.addEventListener("click", function (event) {
+
+  const btn = event.target.closest("button")
+  if (!btn) return
+
+  const action = btn.dataset.action
+  const team = btn.dataset.team
+
+  if (action === "score") {
+    const points = Number(btn.dataset.points)
+    addPoints(team, points)
+
+  }
+  else if (action === "addFouls") {
+    addFouls(team)
+  }
+  else if (action === "resetFouls") {
+    resetFouls(team)
+
+  }
+  else if (action === "toggleBonus") {
+    toggleBonus(team)
+
+  } else if (action === "switchPossession") {
+    switchPossession()
+
+  }
+
+})
+
 
 
 let startPauseBtn = document.getElementById("start-pause-time-btn")
