@@ -37,6 +37,16 @@ function render() {
   document.getElementById("home-tol-number").textContent = state.home.timeouts
   document.getElementById("visitor-tol-number").textContent = state.visitor.timeouts
 
+
+  const gameClockString = formatTime(state.gameClock.remaining)
+  const [minGameClock, secGameClock] = gameClockString.split(":")
+
+
+  document.getElementById("min-timer").textContent = minGameClock
+  document.getElementById("sec-timer").textContent = secGameClock
+  document.getElementById("main-time-container").setAttribute("datetime", gameClockString)
+
+
 }
 
 function padTwo(number) {
@@ -77,32 +87,27 @@ function switchPossession() {
   render()
 }
 
-let mainTimeContainer = document.getElementById("main-time-container")
-let timeRemaining = 600
-let minutesEl = document.getElementById("min-timer")
-let secondsEl = document.getElementById("sec-timer")
+// let mainTimeContainer = document.getElementById("main-time-container")
+// let timeRemaining = 600
+// let minutesEl = document.getElementById("min-timer")
+// let secondsEl = document.getElementById("sec-timer")
+
+let expectedEndTime
 
 function refreshClock() {
-  timeRemaining -= 1
+  const now = Date.now()
+  const msRemaining = expectedEndTime - now
 
-  let timeString = formatTime(timeRemaining)
+  const secondsRemaining = Math.max(0, Math.ceil(msRemaining / 1000))
 
-  let [minString, secString] = timeString.split(":")
+  state.gameClock.remaining = secondsRemaining
+  render()
 
-  minutesEl.textContent = minString
-  secondsEl.textContent = secString
-  mainTimeContainer.setAttribute("datetime", timeString)
-
-  minutesEl.textContent = minString
-  secondsEl.textContent = secString
-  mainTimeContainer.setAttribute("datetime", timeString)
-
-  if (timeRemaining <= 0) {
+  if (secondsRemaining <= 0) {
     clearInterval(timerId)
-    isRunning = false
+    state.gameClock.running = false
   }
 }
-
 
 const controlPanel = document.getElementById("control-panel")
 
@@ -133,29 +138,24 @@ controlPanel.addEventListener("click", function (event) {
     switchPossession()
 
   }
-
 })
 
 
 
 let startPauseBtn = document.getElementById("start-pause-time-btn")
 
-let isRunning = false
 let timerId
-let initialminutes = "10"
-let initialseconds = "00"
-
-
 startPauseBtn.addEventListener("click", function () {
 
-  if (isRunning == true) {
+  if (state.gameClock.running == true) {
     clearInterval(timerId)
-    isRunning = false
+    state.gameClock.running = false
 
 
   } else {
-    timerId = setInterval(refreshClock, 1000)
-    isRunning = true
+    expectedEndTime = Date.now() + (state.gameClock.remaining * 1000)
+    timerId = setInterval(refreshClock, 200)
+    state.gameClock.running = true
   }
 })
 
@@ -163,14 +163,13 @@ let resetBtn = document.getElementById("reset-time-btn")
 
 function resetClock() {
 
-  if (isRunning == true) {
+  if (state.gameClock.running) {
     clearInterval(timerId)
-    isRunning = false
+    state.gameClock.running = false
   }
 
-  timeRemaining = 600
-  minutesEl.textContent = initialminutes
-  secondsEl.textContent = initialseconds
+  state.gameClock.remaining = 600
+  render()
 
 }
 
@@ -244,4 +243,3 @@ resetBtnShotClock.addEventListener("click", function () {
 })
 
 
-render()
