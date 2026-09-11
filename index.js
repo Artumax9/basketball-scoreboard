@@ -9,8 +9,8 @@ const state = {
 
 function render() {
   //update score
-  document.getElementById("home-score").textContent = String(state.home.score).padStart(2, '0')
-  document.getElementById("visitor-score").textContent = String(state.visitor.score).padStart(2, '0')
+  document.getElementById("home-score").textContent = padTwo(state.home.score)
+  document.getElementById("visitor-score").textContent = padTwo(state.visitor.score)
 
   //update period
   document.getElementById("period-number").textContent = state.period
@@ -37,6 +37,18 @@ function render() {
   document.getElementById("home-tol-number").textContent = state.home.timeouts
   document.getElementById("visitor-tol-number").textContent = state.visitor.timeouts
 
+}
+
+function padTwo(number) {
+  return String(number).padStart(2, '0')
+}
+
+function formatTime(totalSeconds) {
+
+  const minutes = Math.floor(totalSeconds / 60)
+  const seconds = totalSeconds % 60
+
+  return `${padTwo(minutes)}:${padTwo(seconds)}`
 }
 
 function addPoints(team, points) {
@@ -94,36 +106,25 @@ document.getElementById("switch-poss-btn").addEventListener("click", switchPosse
 
 let mainTimeContainer = document.getElementById("main-time-container")
 let timeRemaining = 600
-let minutes = document.getElementById("min-timer")
-let seconds = document.getElementById("sec-timer")
+let minutesEl = document.getElementById("min-timer")
+let secondsEl = document.getElementById("sec-timer")
 
 function refreshClock() {
   timeRemaining -= 1
-  let minuteTime = Math.floor(timeRemaining / 60)
-  let secTime = timeRemaining % 60
-  let minString
-  let secString
 
-  if (minuteTime < 10) {
-    minString = "0" + minuteTime
-  } else {
-    minString = minuteTime
-  }
+  let timeString = formatTime(timeRemaining)
 
-  minutes.textContent = minString
+  let [minString, secString] = timeString.split(":")
 
-  if (secTime < 10) {
-    secString = "0" + secTime
-  }
-  else {
-    secString = secTime
-  }
+  minutesEl.textContent = minString
+  secondsEl.textContent = secString
+  mainTimeContainer.setAttribute("datetime", timeString)
 
-  seconds.textContent = secString
+  minutesEl.textContent = minString
+  secondsEl.textContent = secString
+  mainTimeContainer.setAttribute("datetime", timeString)
 
-  mainTimeContainer.setAttribute("datetime", minString + ":" + secString)
-
-  if (timeRemaining == 0) {
+  if (timeRemaining <= 0) {
     clearInterval(timerId)
     isRunning = false
   }
@@ -161,8 +162,8 @@ function resetClock() {
   }
 
   timeRemaining = 600
-  minutes.textContent = initialminutes
-  seconds.textContent = initialseconds
+  minutesEl.textContent = initialminutes
+  secondsEl.textContent = initialseconds
 
 }
 
@@ -180,17 +181,14 @@ let timerIdShotClock
 
 function refreshTimeShotClock() {
   timeRemainingShotClock -= 1
-  let secShotString
 
-  secondsShotClock.textContent = timeRemainingShotClock
+  let timeShotString = formatTime(timeRemainingShotClock)
 
-  if (timeRemainingShotClock < 10) {
-    secShotString = "0" + timeRemainingShotClock
-  } else {
-    secShotString = timeRemainingShotClock
-  }
+  let [minShotString, secShotString] = timeShotString.split(":")
+
+
   secondsShotClock.textContent = secShotString
-  ShotClockContainer.setAttribute("datetime", "00:" + secShotString)
+  ShotClockContainer.setAttribute("datetime", timeShotString)
 
   if (timeRemainingShotClock <= 0) {
     clearInterval(timerIdShotClock)
