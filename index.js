@@ -10,6 +10,39 @@ const state = {
 // 2. Funciones que MODIFICAN el estado. No tocan el DOM.
 function addPoints(team, points) { state[team].score += points }
 
+function render() {
+  //update score
+  document.getElementById("home-score").textContent = String(state.home.score).padStart(2, '0')
+  document.getElementById("visitor-score").textContent = String(state.visitor.score).padStart(2, '0')
+
+  //update period
+  document.getElementById("period-number").textContent = state.period
+
+  //update possession arrows (using conditional toggle)
+  const homeArrow = document.getElementById("home-poss-arrow")
+  const visitorArrow = document.getElementById("visitor-poss-arrow")
+
+  homeArrow.classList.toggle("active", state.possession === "home")
+  visitorArrow.classList.toggle("active", state.possession === "visitor")
+
+  //update bonus
+  const homeBonus = document.getElementById("home-bonus-indicator")
+  homeBonus.classList.toggle("active", state.home.bonus)
+
+  const visitorBonus = document.getElementById("visitor-bonus-indicator")
+  visitorBonus.classList.toggle("active", state.visitor.bonus)
+
+  // udpate fouls
+  document.getElementById("home-fouls-number").textContent = state.home.fouls
+  document.getElementById("visitor-fouls-number").textContent = state.visitor.fouls
+
+  // update dead times
+  document.getElementById("home-tol-number").textContent = state.home.timeouts
+  document.getElementById("visitor-tol-number").textContent = state.visitor.timeouts
+
+
+}
+
 
 let homeScore = 0
 
@@ -302,3 +335,5 @@ resetBtnShotClock.addEventListener("click", function () {
   resetClockShotCLock()
 })
 
+
+render()
