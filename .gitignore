@@ -2,3 +2,5 @@ node_modules/
 dist/
 *:Zone.Identifier
 .DS_Store
+.vscode/
+*.swp
