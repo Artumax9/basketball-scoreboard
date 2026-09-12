@@ -9,3 +9,9 @@ export function formatTime(totalSeconds) {
 
   return `${padTwo(minutes)}:${padTwo(seconds)}`
 }
+
+export function isInBonus(fouls) {
+  return fouls >= 5
+}
+
+

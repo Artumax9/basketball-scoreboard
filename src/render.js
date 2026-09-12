@@ -1,5 +1,5 @@
 import { state } from "./state.js"
-import { padTwo, formatTime } from "./format.js";
+import { padTwo, formatTime, isInBonus } from "./rules.js";
 
 export function render() {
   //update score
@@ -18,10 +18,10 @@ export function render() {
 
   //update bonus
   const homeBonus = document.getElementById("home-bonus-indicator")
-  homeBonus.classList.toggle("active", state.home.bonus)
+  homeBonus.classList.toggle("active", isInBonus(state.home.fouls))
 
   const visitorBonus = document.getElementById("visitor-bonus-indicator")
-  visitorBonus.classList.toggle("active", state.visitor.bonus)
+  visitorBonus.classList.toggle("active", isInBonus(state.visitor.fouls))
 
   // udpate fouls
   document.getElementById("home-fouls-number").textContent = state.home.fouls

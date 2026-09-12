@@ -18,11 +18,6 @@ function resetFouls(team) {
   render()
 }
 
-function toggleBonus(team) {
-  state[team].bonus = !state[team].bonus
-  render()
-}
-
 function switchPossession() {
   state.possession = state.possession === "home" ? "visitor" : "home"
   render()
@@ -33,7 +28,6 @@ const actions = {
   score: (btn) => addPoints(btn.dataset.team, Number(btn.dataset.points)),
   addFouls: (btn) => addFouls(btn.dataset.team),
   resetFouls: (btn) => resetFouls(btn.dataset.team),
-  toggleBonus: (btn) => toggleBonus(btn.dataset.team),
   switchPossession: () => switchPossession(),
   toggleGameClock: () => toggleGameClock(),
   resetGameClock: () => resetGameClock(),
@@ -43,7 +37,7 @@ const actions = {
 
 // 3. CONNECT THE BUTTONS (event listeners)
 const controlPanel = document.getElementById("control-panel")
-// Event delegation for fouls, points, bonuses, and possession
+// Event delegation for fouls, points, and possession
 
 controlPanel.addEventListener("click", function (event) {
 
