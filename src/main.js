@@ -1,6 +1,8 @@
 import { state } from './state.js'
 import { render } from "./render.js"
 import { toggleGameClock, resetGameClock, toggleShotClock, resetShotClock } from './clock.js'
+import { periodClockLength } from "./rules.js";
+
 
 // 2. Actions functions (modify the state and call render)
 function addPoints(team, points) {
@@ -23,6 +25,15 @@ function switchPossession() {
   render()
 }
 
+function nextPeriod() {
+  state.period += 1
+  state.home.fouls = 0
+  state.visitor.fouls = 0
+
+  resetGameClock(periodClockLength(state.period))
+  resetShotClock()
+}
+
 // create the handler object that associates the button text with its function
 const actions = {
   score: (btn) => addPoints(btn.dataset.team, Number(btn.dataset.points)),
@@ -30,9 +41,10 @@ const actions = {
   resetFouls: (btn) => resetFouls(btn.dataset.team),
   switchPossession: () => switchPossession(),
   toggleGameClock: () => toggleGameClock(),
-  resetGameClock: () => resetGameClock(),
   toggleShotClock: () => toggleShotClock(),
-  resetShotClock: () => resetShotClock()
+  resetShotClock: () => resetShotClock(),
+  resetGameClock: () => resetGameClock(periodClockLength(state.period)),
+  nextPeriod: () => nextPeriod()
 }
 
 // 3. CONNECT THE BUTTONS (event listeners)

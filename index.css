@@ -54,7 +54,7 @@ body {
     height: 65px;
 }
 
-#min-timer, #sec-timer, #min-timer-foul, #sec-timer-foul, #min-shot-clock, #sec-shot-clock{
+#min-timer, #sec-timer, #min-shot-clock, #sec-shot-clock{
     width: 60px;
     text-align: center;
 }
@@ -251,12 +251,6 @@ body {
     font-family: 'Cursed Timer ULiL', sans-serif;
     color: var(--led-yellow); /* Usar amarillo lo diferencia bien de las faltas rojas */
     font-size: 1.5rem; /* Más pequeño que el score principal de 3.25rem */
-}
-
-.shot-clock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .control-panel-board {

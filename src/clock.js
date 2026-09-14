@@ -35,14 +35,13 @@ export function toggleGameClock() {
   }
 }
 
-export function resetGameClock() {
+export function resetGameClock(seconds = 600) {
 
   if (state.gameClock.running) {
     clearInterval(timerId)
     state.gameClock.running = false
   }
-
-  state.gameClock.remaining = 600
+  state.gameClock.remaining = seconds
   render()
 
 }

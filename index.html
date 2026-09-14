@@ -45,7 +45,7 @@
                     <div class="period-container">
                         <span class="central-text">PERIOD</span>
                         <!-- Period number set to be green -->
-                        <span id="period-number" class="period-score">0</span>
+                        <span id="period-number" class="period-score">1</span>
                     </div>
                 </div>
                 <!-- VISITOR TEAM SECTION -->
@@ -75,11 +75,11 @@
                     </div>
                 </div>
                 <div class="game-info-panel">
-                    <span id="timer-foul" class="section-name">FOULS PLAYER</span>
-                    <time id="main-foul-container" class="timer" datetime="10:00">
-                        <span id="min-timer-foul">00</span>
-                        <span id="colon-timer-foul">:</span>
-                        <span id="sec-timer-foul">00</span>
+                    <span class="section-name"> SHOT CLOCK </span>
+                    <time id="shot-clock-container" class="timer" datetime="00:24">
+                        <span id="min-shot-clock">00</span>
+                        <span id="colon-shot-clock">:</span>
+                        <span id="sec-shot-clock">00</span>
                     </time>
                 </div>
                 <div class="team-panel">
@@ -95,14 +95,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="shot-clock">
-                <span class="section-name"> SHOT CLOCK </span>
-                <time id="shot-clock-container" class="timer" datetime="00:24">
-                    <span id="min-shot-clock">00</span>
-                    <span id="colon-shot-clock">:</span>
-                    <span id="sec-shot-clock">00</span>
-                </time>
             </div>
         </div>
         <div id="control-panel" class="control-panel-board">
@@ -134,6 +126,7 @@
                     <button id="reset-shot-clock-btn" class="control-btn" data-action="resetShotClock">Reset Shot
                         Clock</button>
                     <button id="switch-poss-btn" class="toggle-btn" data-action="switchPossession">Switch POSS</button>
+                    <button class="control-btn" data-action="nextPeriod">Next Period</button>
                 </div>
             </div>
             <div id="visitor-control-panel" class="flex-column-container">
