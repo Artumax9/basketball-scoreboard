@@ -1,4 +1,4 @@
-import { state } from './state.js'
+import { initialState, state } from './state.js'
 import { render } from "./render.js"
 import { toggleGameClock, resetGameClock, toggleShotClock, resetShotClock } from './clock.js'
 import { periodClockLength } from "./rules.js";
@@ -43,6 +43,13 @@ function useTimeout(team) {
 
 }
 
+function resetGame() {
+  Object.assign(state, initialState())
+  resetGameClock()
+  resetShotClock()
+  render()
+}
+
 
 
 // create the handler object that associates the button text with its function
@@ -56,7 +63,8 @@ const actions = {
   resetShotClock: () => resetShotClock(),
   resetGameClock: () => resetGameClock(periodClockLength(state.period)),
   nextPeriod: () => nextPeriod(),
-  useTimeout: (btn) => useTimeout(btn.dataset.team)
+  useTimeout: (btn) => useTimeout(btn.dataset.team),
+  resetGame: () => resetGame()
 }
 
 // 3. CONNECT THE BUTTONS (event listeners)
