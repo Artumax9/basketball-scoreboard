@@ -34,6 +34,17 @@ function nextPeriod() {
   resetShotClock()
 }
 
+const MAX_TIMEOUTS = 5
+
+function useTimeout(team) {
+  if (state[team].timeouts >= MAX_TIMEOUTS) return
+  state[team].timeouts += 1
+  render()
+
+}
+
+
+
 // create the handler object that associates the button text with its function
 const actions = {
   score: (btn) => addPoints(btn.dataset.team, Number(btn.dataset.points)),
@@ -44,7 +55,8 @@ const actions = {
   toggleShotClock: () => toggleShotClock(),
   resetShotClock: () => resetShotClock(),
   resetGameClock: () => resetGameClock(periodClockLength(state.period)),
-  nextPeriod: () => nextPeriod()
+  nextPeriod: () => nextPeriod(),
+  useTimeout: (btn) => useTimeout(btn.dataset.team)
 }
 
 // 3. CONNECT THE BUTTONS (event listeners)

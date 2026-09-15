@@ -47,6 +47,11 @@ export function render() {
   document.getElementById("min-shot-clock").textContent = minShotClock
   document.getElementById("sec-shot-clock").textContent = secShotClock
   document.getElementById("shot-clock-container").setAttribute("datetime", shotClockString)
+
+  document.getElementById("home-tol-number").textContent = state.home.timeouts
+  document.getElementById("visitor-tol-number").textContent = state.visitor.timeouts
+
+
 }
 
 
