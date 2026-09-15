@@ -109,11 +109,14 @@
                         data-points="3">+3</button>
                     <button id="home-sub-one-btn" class="control-btn" data-action="score" data-team="home"
                         data-points="-1">-1</button>
-                    <button id="home-add-foul-btn" class="control-btn" data-action="addFouls" data-team="home">Add
+                    <button id="home-add-foul-btn" class="control-btn" data-action="updateFouls" data-team="home"
+                        data-amount="1">Add
                         Foul</button>
                     <button id="home-reset-foul-btn" class="control-btn" data-action="resetFouls" data-team="home">Reset
                         Foul</button>
                     <button id="home-tol-btn" class="control-btn" data-action="useTimeout" data-team="home">TOL</button>
+                    <button id="home-sub-foul-btn" class="control-btn" data-action="updateFouls" data-team="home"
+                        data-amount="-1">Sub Foul</button>
                 </div>
             </div>
             <div id="game-control-panel" class="flex-column-container">
@@ -141,13 +144,14 @@
                         data-points="3">+3</button>
                     <button id="visitor-sub-one-btn" class="control-btn" data-action="score" data-team="visitor"
                         data-points="-1">-1</button>
-                    <button id="visitor-add-foul-btn" class="control-btn" data-action="addFouls" data-team="visitor">Add
-                        Foul</button>
+                    <button id="visitor-add-foul-btn" class="control-btn" data-action="updateFouls" data-team="visitor"
+                        data-amount="1">Add Foul</button>
                     <button id="visitor-reset-foul-btn" class="control-btn" data-action="resetFouls"
                         data-team="visitor">Reset Foul</button>
                     <button id="visitor-tol-button" class="control-btn" data-action="useTimeout"
                         data-team="visitor">TOL</button>
-
+                    <button id="visitor-sub-foul-btn" class="control-btn" data-action="updateFouls" data-team="visitor"
+                        data-amount="-1">Sub Foul</button>
                 </div>
             </div>
         </div>

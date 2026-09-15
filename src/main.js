@@ -6,12 +6,12 @@ import { periodClockLength } from "./rules.js";
 
 // 2. Actions functions (modify the state and call render)
 function addPoints(team, points) {
-  state[team].score += points
+  state[team].score = Math.max(0, state[team].score + points)
   render()
 }
 
-function addFouls(team) {
-  state[team].fouls += 1
+function updateFouls(team, amount) {
+  state[team].fouls = Math.max(0, state[team].fouls + amount)
   render()
 }
 
@@ -48,7 +48,7 @@ function useTimeout(team) {
 // create the handler object that associates the button text with its function
 const actions = {
   score: (btn) => addPoints(btn.dataset.team, Number(btn.dataset.points)),
-  addFouls: (btn) => addFouls(btn.dataset.team),
+  updateFouls: (btn) => updateFouls(btn.dataset.team, Number(btn.dataset.amount)),
   resetFouls: (btn) => resetFouls(btn.dataset.team),
   switchPossession: () => switchPossession(),
   toggleGameClock: () => toggleGameClock(),
