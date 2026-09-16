@@ -45,13 +45,15 @@ body {
     display: flex;
     margin-bottom: 10px;
     font-family: 'Cursed Timer ULiL', sans-serif;
-    font-size: 3.25rem;
+    font-size: clamp(1.25rem, 8vw,3.25rem);
     padding: 15px;
     border: 3px solid whitesmoke;
     gap: 10px;
     text-align: center;
-    width: 175px;
+    width: auto;
+    min-width: min(175px, 90vw);
     height: 65px;
+
 }
 
 #min-timer, #sec-timer, #min-shot-clock, #sec-shot-clock{
@@ -207,7 +209,7 @@ body {
     margin: 0;
     text-align: center;
     width: 100%;
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 8vw,3.25rem);
 
 }
 
@@ -227,7 +229,7 @@ body {
     color: var(--light-red);
     font-family: 'Cursed Timer ULiL', sans-serif;
     background-color: #111;
-    font-size: 3.25rem;
+    font-size: clamp(1.25rem, 8vw,3.25rem);
     padding: 15px;
     border-radius: 8px;
     border: 3px solid whitesmoke;
@@ -328,4 +330,13 @@ body {
     font-weight: bold;
     padding: 10px;
 
+}
+
+
+@media (max-width: 640px) {
+    .scoreboard { padding: 12px; border-width: 4px; }
+    .btn-grid { grid-template-columns: 1fr; }
+    .control-panel-board { flex-wrap: wrap; }
+    .flex-row-container  { flex-wrap: wrap; }
+    .team-panel, .game-info-panel { width: 100%;}
 }
