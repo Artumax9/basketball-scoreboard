@@ -48,6 +48,10 @@ export function render() {
   document.getElementById("sec-shot-clock").textContent = secShotClock
   document.getElementById("shot-clock-container").setAttribute("datetime", shotClockString)
 
+  // start/pause button
+  document.getElementById("start-pause-time-btn").setAttribute("aria-pressed", state.gameClock.running)
+  document.getElementById("start-pause-shot-clock-btn").setAttribute("aria-pressed", state.shotClock.running)
+
 
 }
 

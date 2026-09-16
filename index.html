@@ -25,9 +25,10 @@
                 <div class="team-panel">
                     <span class="section-name">HOME</span>
                     <div class="team-panel-metadata ">
-                        <span id="home-score" class="led-red-box">00</span>
+                        <span id="home-score" class="led-red-box" aria-live="polite" aria-label="Home score">00</span>
                         <!-- BONUS Local Display: Light + Text -->
-                        <div id="home-bonus-indicator" class="bonus-indicator">
+                        <div id="home-bonus-indicator" class="bonus-indicator" aria-live="polite"
+                            aria-label="Home bonus status">
                             <div class="bonus-light"></div>
                             <span class="bonus-text">BONUS</span>
 
@@ -45,16 +46,19 @@
                     <div class="period-container">
                         <span class="central-text">PERIOD</span>
                         <!-- Period number set to be green -->
-                        <span id="period-number" class="period-score">1</span>
+                        <span id="period-number" class="period-score" aria-live="polite"
+                            aria-label="Game Period number">1</span>
                     </div>
                 </div>
                 <!-- VISITOR TEAM SECTION -->
                 <div class="team-panel">
                     <span class="section-name">VISITOR</span>
                     <div class="team-metadata">
-                        <span id="visitor-score" class="led-red-box">00</span>
+                        <span id="visitor-score" class="led-red-box" aria-live="polite"
+                            aria-label="Visitor score">00</span>
                         <!-- BONUS Visitor Sign: Text + Light (Reversed for symmetry) -->
-                        <div id="visitor-bonus-indicator" class="bonus-indicator">
+                        <div id="visitor-bonus-indicator" class="bonus-indicator" aria-live="polite"
+                            aria-label="Visitor bonus status">
                             <div class="bonus-light"></div>
                             <span class="bonus-text">BONUS</span>
                         </div>
@@ -65,11 +69,13 @@
                 <div class="team-panel">
                     <span class="section-name"> FOULS </span>
                     <div class="fouls-metadata">
-                        <span id="home-fouls-number" class="led-red-box">0 </span>
+                        <span id="home-fouls-number" class="led-red-box" aria-live="polite"
+                            aria-label="Home fouls number">0 </span>
                         <div id="fouls-home-text-under-number" class="fouls-text">
                             <div class="tol-container">
                                 <span class="bonus-text">TOL</span>
-                                <span id="home-tol-number" class="tol-number">0</span>
+                                <span id="home-tol-number" class="tol-number"
+                                    aria-label="Request timeout for home team">0</span>
                             </div>
                         </div>
                     </div>
@@ -85,12 +91,14 @@
                 <div class="team-panel">
                     <span class="section-name"> FOULS </span>
                     <div class="foul-metadata">
-                        <span id="visitor-fouls-number" class="led-red-box">0</span>
+                        <span id="visitor-fouls-number" class="led-red-box" aria-live="polite"
+                            aria-label="Visitor fouls number">0</span>
                         <div id="foul-visitor-text-under-number" class="fouls-text">
-                            <!-- Reemplaza tu actual span de TOL con esto debajo del recuadro de faltas -->
+                            <!-- TOL display below the foul box -->
                             <div class="tol-container">
                                 <span class="bonus-text">TOL</span>
-                                <span id="visitor-tol-number" class="tol-number">0</span>
+                                <span id="visitor-tol-number" class="tol-number"
+                                    aria-label="Request timeout for visitor team">0</span>
                             </div>
                         </div>
                     </div>
@@ -102,21 +110,23 @@
                 <span class="sub-section-name"> HOME CONTROL PANEL </span>
                 <div class="btn-grid">
                     <button id="home-add-one-btn" class="control-btn" data-action="score" data-team="home"
-                        data-points="1">+1</button>
+                        data-points="1" aria-label="Add 1 point to home team">+1</button>
                     <button id="home-add-two-btn" class="control-btn" data-action="score" data-team="home"
-                        data-points="2">+2</button>
+                        data-points="2" aria-label="Add 2 points to home team">+2</button>
                     <button id="home-add-three-btn" class="control-btn" data-action="score" data-team="home"
-                        data-points="3">+3</button>
+                        data-points="3" aria-label="Add 3 points to home team">+3</button>
                     <button id="home-sub-one-btn" class="control-btn" data-action="score" data-team="home"
-                        data-points="-1">-1</button>
+                        data-points="-1" aria-label="Subtract 1 point to home team">-1</button>
                     <button id="home-add-foul-btn" class="control-btn" data-action="updateFouls" data-team="home"
-                        data-amount="1">Add
+                        data-amount="1" aria-label="add foul button to home team">Add
                         Foul</button>
-                    <button id="home-reset-foul-btn" class="control-btn" data-action="resetFouls" data-team="home">Reset
+                    <button id="home-reset-foul-btn" class="control-btn" data-action="resetFouls" data-team="home"
+                        aria-label="reset the team's foul count">Reset
                         Foul</button>
-                    <button id="home-tol-btn" class="control-btn" data-action="useTimeout" data-team="home">TOL</button>
+                    <button id="home-tol-btn" class="control-btn" data-action="useTimeout" data-team="home"
+                        aria-label="add timeout to home team">TOL</button>
                     <button id="home-sub-foul-btn" class="control-btn" data-action="updateFouls" data-team="home"
-                        data-amount="-1">Sub Foul</button>
+                        data-amount="-1" aria-label="Subtract foul to home team">Sub Foul</button>
                 </div>
             </div>
             <div id="game-control-panel" class="flex-column-container">
@@ -125,34 +135,40 @@
                     <button id="start-pause-time-btn" class="toggle-btn" data-action="toggleGameClock">Start/Pause
                         timer</button>
                     <button id="reset-time-btn" class="control-btn" data-action="resetGameClock">Reset Time</button>
-                    <button id="start-pause-shot-clock-btn" class="toggle-btn" data-action="toggleShotClock">Start/Pause
+                    <button id="start-pause-shot-clock-btn" class="toggle-btn" data-action="toggleShotClock"
+                        aria-label="start/pause shot clock button">Start/Pause
                         shot clock</button>
-                    <button id="reset-shot-clock-btn" class="control-btn" data-action="resetShotClock">Reset Shot
+                    <button id="reset-shot-clock-btn" class="control-btn" data-action="resetShotClock"
+                        aria-label="reset the shot clock">Reset Shot
                         Clock</button>
-                    <button id="switch-poss-btn" class="toggle-btn" data-action="switchPossession">Switch POSS</button>
-                    <button class="control-btn" data-action="nextPeriod">Next Period</button>
-                    <button id="reset-game-btn" class="control-btn" data-action="resetGame">Reset Game</button>
+                    <button id="switch-poss-btn" class="toggle-btn" data-action="switchPossession"
+                        aria-label="toggle the Possession">Switch POSS</button>
+                    <button class="control-btn" data-action="nextPeriod"
+                        aria-label="button to increase the period number for each quarter">Next Period</button>
+                    <button id="reset-game-btn" class="control-btn" data-action="resetGame"
+                        aria-label="reset the entire game">Reset Game</button>
                 </div>
             </div>
             <div id="visitor-control-panel" class="flex-column-container">
                 <span class="sub-section-name"> VISITOR CONTROL PANEL </span>
                 <div class="btn-grid">
                     <button id="visitor-add-one-btn" class="control-btn" data-action="score" data-team="visitor"
-                        data-points="1">+1</button>
+                        data-points="1" aria-label="Add 1 point to visitor team">+1</button>
                     <button id="visitor-add-two-btn" class="control-btn" data-action="score" data-team="visitor"
-                        data-points="2">+2</button>
+                        data-points="2" aria-label="Add 2 points to visitor team">+2</button>
                     <button id="visitor-add-three-btn" class="control-btn" data-action="score" data-team="visitor"
-                        data-points="3">+3</button>
+                        data-points="3" aria-label="Add 3 points to visitor team">+3</button>
                     <button id="visitor-sub-one-btn" class="control-btn" data-action="score" data-team="visitor"
-                        data-points="-1">-1</button>
+                        data-points="-1" aria-label="Subtract 1 point to visitor team">-1</button>
                     <button id="visitor-add-foul-btn" class="control-btn" data-action="updateFouls" data-team="visitor"
-                        data-amount="1">Add Foul</button>
-                    <button id="visitor-reset-foul-btn" class="control-btn" data-action="resetFouls"
-                        data-team="visitor">Reset Foul</button>
-                    <button id="visitor-tol-button" class="control-btn" data-action="useTimeout"
-                        data-team="visitor">TOL</button>
-                    <button id="visitor-sub-foul-btn" class="control-btn" data-action="updateFouls" data-team="visitor"
-                        data-amount="-1">Sub Foul</button>
+                        data-amount="1" aria-label="add one foul for visitor team">Add Foul</button>
+                    <button id="visitor-reset-foul-btn" class="control-btn" data-action="resetFouls" data-team="visitor"
+                        aria-label="Reset the visitor team's foul count">Reset Foul</button>
+                        <button id="visitor-tol-button" class="control-btn" data-action="useTimeout" data-team="visitor"
+                            aria-label="add timeout to visitor team">TOL</button>
+                        <button id="visitor-sub-foul-btn" class="control-btn" data-action="updateFouls"
+                            data-team="visitor" data-amount="-1" aria-label="Subtract one foul to visitor team">Sub
+                            Foul</button>
                 </div>
             </div>
         </div>

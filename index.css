@@ -21,7 +21,7 @@ body {
     padding: 25px;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto; /* Para centrarlo en la pantalla */
+    margin: 0 auto; /* Center it on the screen */
     border: 10px solid black;
     margin-bottom: 10px;
 }
@@ -63,7 +63,7 @@ body {
 
 .flex-row-container {
     display: flex;
-    justify-content: space-between; /*mejor espaciado*/
+    justify-content: space-between; /* better spacing */
     text-align: center;
     flex-direction: row;
     align-items: flex-start;
@@ -103,18 +103,18 @@ body {
     color: red;
 }
 
-/* --- Estilo de BONUS (Realista) --- */
+/* --- BONUS style (Realistic) --- */
 .bonus-indicator {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: var(--periwinkle); /* Color de texto secundario apagado */
+    color: var(--periwinkle); /* Muted secondary text color */
 
-    /* PREPARACIÓN JS: Empezamos ocultos */
+    /* JS PREP: Start hidden */
     visibility: hidden;
 }
 
-/* PREPARACIÓN JS: Clase que añadirá JavaScript para "encender" el bonus */
+/* JS PREP: Class that JavaScript will add to "light up" the bonus */
 .bonus-indicator.active {
     visibility: visible;
 }
@@ -128,17 +128,17 @@ body {
 .bonus-light {
     width: 10px;
     height: 10px;
-    border-radius: 50%; /* Lo hace un círculo */
-    background-color: var(--light-red); /* Color de luz encendida */
-    box-shadow: 0 0 5px var(--light-red); /* Efecto de brillo LED */
+    border-radius: 50%; /* Makes it a circle */
+    background-color: var(--light-red); /* Lit light color */
+    box-shadow: 0 0 5px var(--light-red); /* LED glow effect */
 }
 
-/* --- Estilo de Sección Central --- */
+/* --- Center section style --- */
 .game-info-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Espacio entre POSS y PERIOD */
+    gap: 10px; /* Space between POSS and PERIOD */
     width: 35%;
 }
 
@@ -149,7 +149,7 @@ body {
     font-weight: bold;
 }
 
-/* --- Estilo de POSS (Flechas LED) --- */
+/* --- POSS style (LED arrows) --- */
 .poss-container {
     display: flex;
     align-items: center;
@@ -162,26 +162,26 @@ body {
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
 
-    /* PREPARACIÓN JS: Color de flecha "apagada" */
+    /* JS PREP: "off" arrow color */
     border-left: 15px solid #333;
 
-    /* Si prefieres círculos como en POSS real, usa esto en lugar de bordes:
+    /* If you prefer circles like a real POSS indicator, use this instead of borders:
     width: 12px; height: 12px; border-radius: 50%; background-color: #333;
     */
 }
 
-/* PREPARACIÓN JS: Clase para encender la flecha (ej: color LED amarillo) */
+/* JS PREP: Class to light up the arrow (e.g. yellow LED color) */
 .poss-arrow.active {
     border-left-color: var(--led-yellow);
     filter: drop-shadow(0 0 3px var(--led-yellow));
 }
 
-/* Girar la flecha derecha para que apunte a VISITORS */
+/* Rotate the right arrow so it points to VISITORS */
 .right-arrow {
     transform: rotate(180deg);
 }
 
-/* --- Estilo de PERIOD (Mejorado, Verde) --- */
+/* --- PERIOD style (Improved, Green) --- */
 .period-container {
     display: flex;
     flex-direction: column;
@@ -189,15 +189,15 @@ body {
 }
 
 .period-score {
-    /* Mismo estilo de caja que los números grandes */
+    /* Same box style as the big numbers */
     font-family: 'Cursed Timer ULiL', sans-serif;
-    font-size: 2.5rem; /* Un poco más pequeño que los scores */
+    font-size: 2.5rem; /* Slightly smaller than the scores */
     background-color: #111;
     padding: 5px 20px;
     border-radius: 8px;
     margin-top: 5px;
 
-    /* CAMBIO ESTÉTICO: Verde brillante como en la imagen real 🟢 */
+    /* AESTHETIC CHANGE: Bright green like the real scoreboard 🟢 */
     color: springgreen;
     border: 3px solid springgreen;
     box-shadow: 0 0 10px springgreen;
@@ -251,8 +251,8 @@ body {
 
 .tol-number {
     font-family: 'Cursed Timer ULiL', sans-serif;
-    color: var(--led-yellow); /* Usar amarillo lo diferencia bien de las faltas rojas */
-    font-size: 1.5rem; /* Más pequeño que el score principal de 3.25rem */
+    color: var(--led-yellow); /* Yellow clearly distinguishes it from the red fouls */
+    font-size: 1.5rem; /* Smaller than the main 3.25rem score */
 }
 
 .control-panel-board {
@@ -264,7 +264,7 @@ body {
     padding: 25px;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto; /* Para centrarlo en la pantalla */
+    margin: 0 auto; /* Center it on the screen */
     border: 10px solid black;
     margin-bottom: 10px;
     gap: 20px;
@@ -293,7 +293,12 @@ body {
     white-space: normal;
 }
 
-/* Colores específicos */
+.control-btn:focus-visible, .toggle-btn:focus-visible {
+  outline: 3px solid var(--led-yellow);
+  outline-offset: 3px;
+}
+
+/* Specific colors */
 .control-btn {
     background: linear-gradient(135deg, #ff416c, #ff4b2b);
     box-shadow: 0 5px 0 #b32400, 0 8px 15px rgba(0, 0, 0, 0.4);
@@ -301,8 +306,8 @@ body {
 }
 
 .toggle-btn {
-    background: linear-gradient(135deg, #11998e, #38ef7d); /* Un gradiente verde para que combine */
-    /* Sombra verde oscura */
+    background: linear-gradient(135deg, #11998e, #38ef7d); /* A green gradient to match */
+    /* Dark green shadow */
     box-shadow: 0 5px 0 #055a08, 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -315,7 +320,7 @@ body {
 }
 
 .control-btn:hover, .toggle-btn:hover {
-  background-color: #33ff33;
+  filter: brightness(1.15);
   color: #0f0f0f;
   box-shadow: 0 0 20px rgba(51, 255, 51, 0.8);
 }

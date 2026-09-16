@@ -70,10 +70,10 @@ const actions = {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.target.closest("button")) return   // evita el doble disparo
+  if (event.target.closest("button")) return   // avoid double-firing
 
   if (event.code === "Space") {
-    event.preventDefault()   // si no, la barra scrollea la página
+    event.preventDefault()   // otherwise the spacebar scrolls the page
     toggleGameClock()
   } else if (event.key === "r") {
     resetShotClock()

@@ -1,5 +1,4 @@
 import { state } from './state.js'
-import { render } from './render.js'
 import { sync } from './sync.js'
 
 
@@ -35,6 +34,7 @@ export function toggleGameClock() {
     timerId = setInterval(refreshClock, 200)
     state.gameClock.running = true
   }
+  sync()
 }
 
 export function resetGameClock(seconds = 600) {
@@ -74,6 +74,7 @@ export function toggleShotClock() {
     shotClockTimerId = setInterval(refreshTimeShotClock, 200)
     state.shotClock.running = true
   }
+  sync()
 }
 
 
