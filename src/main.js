@@ -1,28 +1,31 @@
 import { initialState, state } from './state.js'
 import { render } from "./render.js"
+import { saveState, loadState } from "./storage.js";
 import { toggleGameClock, resetGameClock, toggleShotClock, resetShotClock } from './clock.js'
-import { periodClockLength } from "./rules.js";
+import { periodClockLength } from "./rules.js"
+import { sync } from "./sync.js"
+
 
 
 // 2. Actions functions (modify the state and call render)
 function addPoints(team, points) {
   state[team].score = Math.max(0, state[team].score + points)
-  render()
+  sync()
 }
 
 function updateFouls(team, amount) {
   state[team].fouls = Math.max(0, state[team].fouls + amount)
-  render()
+  sync()
 }
 
 function resetFouls(team) {
   state[team].fouls = 0
-  render()
+  sync()
 }
 
 function switchPossession() {
   state.possession = state.possession === "home" ? "visitor" : "home"
-  render()
+  sync()
 }
 
 function nextPeriod() {
@@ -39,7 +42,7 @@ const MAX_TIMEOUTS = 5
 function useTimeout(team) {
   if (state[team].timeouts >= MAX_TIMEOUTS) return
   state[team].timeouts += 1
-  render()
+  sync()
 
 }
 
@@ -47,9 +50,8 @@ function resetGame() {
   Object.assign(state, initialState())
   resetGameClock()
   resetShotClock()
-  render()
+  sync()
 }
-
 
 
 // create the handler object that associates the button text with its function
@@ -82,5 +84,6 @@ controlPanel.addEventListener("click", function (event) {
 
 })
 
-render()
+loadState(state)
+sync()
 

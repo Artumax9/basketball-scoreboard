@@ -1,5 +1,7 @@
 import { state } from './state.js'
 import { render } from './render.js'
+import { sync } from './sync.js'
+
 
 let timerId
 let expectedEndTime
@@ -13,7 +15,7 @@ function refreshClock() {
   const secondsRemaining = Math.max(0, Math.ceil(msRemaining / 1000))
 
   state.gameClock.remaining = secondsRemaining
-  render()
+  sync()
 
   if (secondsRemaining <= 0) {
     clearInterval(timerId)
@@ -42,7 +44,7 @@ export function resetGameClock(seconds = 600) {
     state.gameClock.running = false
   }
   state.gameClock.remaining = seconds
-  render()
+  sync()
 
 }
 
@@ -52,7 +54,7 @@ function refreshTimeShotClock() {
   const secondsRemaining = Math.max(0, Math.ceil(msRemaining / 1000))
 
   state.shotClock.remaining = secondsRemaining
-  render()
+  sync()
 
   if (secondsRemaining <= 0) {
     clearInterval(shotClockTimerId)
@@ -83,7 +85,7 @@ export function resetShotClock() {
   }
 
   state.shotClock.remaining = 24
-  render()
+  sync()
 
 }
 

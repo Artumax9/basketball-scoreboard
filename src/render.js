@@ -1,5 +1,5 @@
 import { state } from "./state.js"
-import { padTwo, formatTime, isInBonus } from "./rules.js";
+import { padTwo, formatTime, isInBonus } from "./rules.js"
 
 export function render() {
   //update score
@@ -47,10 +47,6 @@ export function render() {
   document.getElementById("min-shot-clock").textContent = minShotClock
   document.getElementById("sec-shot-clock").textContent = secShotClock
   document.getElementById("shot-clock-container").setAttribute("datetime", shotClockString)
-
-
-
-
 
 
 }
