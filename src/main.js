@@ -69,6 +69,18 @@ const actions = {
   resetGame: () => resetGame()
 }
 
+document.addEventListener("keydown", (event) => {
+  if (event.target.closest("button")) return   // evita el doble disparo
+
+  if (event.code === "Space") {
+    event.preventDefault()   // si no, la barra scrollea la página
+    toggleGameClock()
+  } else if (event.key === "r") {
+    resetShotClock()
+  }
+})
+
+
 // 3. CONNECT THE BUTTONS (event listeners)
 const controlPanel = document.getElementById("control-panel")
 // Event delegation for fouls, points, and possession
