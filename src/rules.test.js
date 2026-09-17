@@ -19,6 +19,13 @@ describe("formatTime", () => {
   it("formats zero", () => {
     expect(formatTime(0)).toBe("00:00")
   })
+
+  // Regression test for the original shot clock bug (Stage 1.1): a DOM element
+  // was compared against a number, so NaN comparisons silently evaluated to
+  // false and the leading zero never rendered for single-digit seconds.
+  it("pads single-digit seconds with a leading zero (regression: original shot clock bug)", () => {
+    expect(formatTime(9)).toBe("00:09")
+  })
 })
 
 
