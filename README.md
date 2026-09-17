@@ -4,7 +4,7 @@ An interactive basketball scoreboard built from scratch with vanilla JavaScript 
 
 **[Live demo](https://artumax9.github.io/basketball-scoreboard/)**
 
-![Basketball scoreboard screenshot](docs/screenshot.png)
+![Basketball scoreboard screenshot](docs/basketball-scoreboard.jpg)
 
 ## Features
 
